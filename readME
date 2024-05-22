@@ -1,6 +1,40 @@
-Hello
+Hello this is a small project inspired by geiiker tic tac toe written in javascript.
+
+Below is a summy of the js codes and how they function:
+
+gameContainer: The HTML element that holds the game grid.
+statusText: The HTML element that displays the current game status.
+currentPlayer: Tracks the current player, starting with 'X'.
+board: An object to store the current state of the board, with keys as coordinates and values as player marks.
+playerMarks: An object to keep track of the positions of the marks for each player.
+gameOver: A boolean flag to indicate if the game is over.
+
+createBoard(size): This function initializes the game grid.
+- It sets up the grid columns based on the size parameter.
+- It creates individual cells, assigns them coordinates (data-x and data-y), and attaches a click event listener to each cell.
+- Cells are added to the gameContainer.
+
+resetGame(): This function resets the game to its initial state.
+It clears the board and playerMarks objects, sets currentPlayer to 'X', and gameOver to false.
+Updates the status text to indicate the current player's turn.
+Clears the gameContainer and recreates the board with the initial size of 3 by 3
+
+placeMark(x, y): This function handles placing a mark on the board.
+It returns early if the game is over or if the cell is already occupied.
+If the current player already has 3 marks, the oldest mark is removed from the board and the corresponding cell is cleared.
+Updates the cell content and the board state with the current player's mark.
+Checks for a win using checkWin(x, y). If the current player wins, it updates the status text to display the winner and shows a "Play Again" button.
+If no win is detected, it switches to the other player and updates the status text.
+
+checkWin(x, y): This function checks if the current player has won the game.
+It defines the possible winning directions (horizontal, vertical, and two diagonals).
+For each direction, it counts consecutive marks of the current player.
+If three consecutive marks are found in any direction, it returns true, indicating a win.
+If no win is detected, it returns false.
+
+handleClick(event): This function is called when a cell is clicked.
+It extracts the x and y coordinates from the clicked cell and calls placeMark(x, y) to handle the placement of the mark.
 
 
-
-idea ->
-add a count of 6 so after 6 counts, transition to the next function,
+createBoard(3): Initializes the game board with a size of 3x3 when the script is first loaded.
+This code sets up an infinite Tic Tac Toe game where each player can place up to three marks on a 3x3 grid. When a player wins, a "Play Again" button is displayed, allowing the game to be reset and started anew.
